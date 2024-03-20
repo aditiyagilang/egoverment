@@ -1,141 +1,51 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Modernize Free</title>
+    <title>Dashboard</title>
     <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/favicon.png') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
+    <link href="{{asset('assets/css/all.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .card-img-top {
+            height: 800px; /* Ubah nilai tinggi sesuai kebutuhan */
+            object-fit: cover; /* Memastikan gambar mengisi seluruh area dengan menjaga aspek rasio */
+        }
+        p {
+            text-align: justify; /* Mengatur teks menjadi rata kanan-kiri */
+        }
+    </style>
 </head>
 
 <body>
     <!--  Body Wrapper -->
-    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-        data-sidebar-position="fixed" data-header-position="fixed">
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6"
+        data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
         <!-- Sidebar Start -->
         <aside class="left-sidebar">
-            <!-- Sidebar scroll-->
-            <div>
-                <div class="brand-logo d-flex align-items-center justify-content-between">
-                    <a href="/index" class="text-nowrap logo-img">
-                        <img src="{{ asset('assets/images/logos/dark-logo.svg') }}" width="180" alt="" />
-                    </a>
-                    <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
-                        <i class="ti ti-x fs-8"></i>
-                    </div>
-                </div>
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
-                    <ul id="sidebarnav">
-                        <li class="nav-small-cap">
-                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                            <span class="hide-menu">Home</span>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="/index" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-layout-dashboard"></i>
-                                </span>
-                                <span class="hide-menu">Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="nav-small-cap">
-                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                            <span class="hide-menu">UI COMPONENTS</span>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-article"></i>
-                                </span>
-                                <span class="hide-menu">Buttons</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-alert-circle"></i>
-                                </span>
-                                <span class="hide-menu">Alerts</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-cards"></i>
-                                </span>
-                                <span class="hide-menu">Card</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-file-description"></i>
-                                </span>
-                                <span class="hide-menu">Forms</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-typography"></i>
-                                </span>
-                                <span class="hide-menu">Typography</span>
-                            </a>
-                        </li>
-                        <li class="nav-small-cap">
-                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                            <span class="hide-menu">AUTH</span>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-login"></i>
-                                </span>
-                                <span class="hide-menu">Login</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-user-plus"></i>
-                                </span>
-                                <span class="hide-menu">Register</span>
-                            </a>
-                        </li>
-                        <li class="nav-small-cap">
-                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                            <span class="hide-menu">EXTRA</span>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-mood-happy"></i>
-                                </span>
-                                <span class="hide-menu">Icons</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-aperture"></i>
-                                </span>
-                                <span class="hide-menu">Sample Page</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- End Sidebar navigation -->
-            </div>
-            <!-- End Sidebar scroll-->
+            @php
+                $activePage = 'index'; // Contoh, sesuaikan dengan halaman yang sedang aktif
+            @endphp
+            @include('sidebar', ['activePage' => $activePage])
         </aside>
         <!--  Sidebar End -->
         <!--  Main wrapper -->
         <div class="body-wrapper">
             <!--  Header Start -->
             <header class="app-header">
-                <nav class="navbar navbar-expand-lg navbar-light">
+                <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
                     <ul class="navbar-nav">
                         <li class="nav-item d-block d-xl-none">
                             <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse"
@@ -152,13 +62,11 @@
                     </ul>
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-                            <a href="https://adminmart.com/product/modernize-free-bootstrap-admin-dashboard/"
-                                target="_blank" class="btn btn-primary">Download Free</a>
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{ asset('assets/images/profile/user-1.jpg') }}" alt=""
-                                        width="35" height="35" class="rounded-circle">
+                                    <img src="{{ asset('assets/images/profile/user-1.jpg') }}" alt="" width="35"
+                                        height="35" class="rounded-circle">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
@@ -167,16 +75,6 @@
                                             class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-user fs-6"></i>
                                             <p class="mb-0 fs-3">My Profile</p>
-                                        </a>
-                                        <a href="javascript:void(0)"
-                                            class="d-flex align-items-center gap-2 dropdown-item">
-                                            <i class="ti ti-mail fs-6"></i>
-                                            <p class="mb-0 fs-3">My Account</p>
-                                        </a>
-                                        <a href="javascript:void(0)"
-                                            class="d-flex align-items-center gap-2 dropdown-item">
-                                            <i class="ti ti-list-check fs-6"></i>
-                                            <p class="mb-0 fs-3">My Task</p>
                                         </a>
                                         <a href="./authentication-login.html"
                                             class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
@@ -189,431 +87,294 @@
             </header>
             <!--  Header End -->
             <div class="container-fluid">
-                <!--  Row 1 -->
+
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                </div>
+
+                <!-- Content Row -->
                 <div class="row">
-                    <div class="col-lg-8 d-flex align-items-strech">
-                        <div class="card w-100">
+
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
-                                <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
-                                    <div class="mb-3 mb-sm-0">
-                                        <h5 class="card-title fw-semibold">Sales Overview</h5>
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Surat Masuk</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">100</div>
                                     </div>
-                                    <div>
-                                        <select class="form-select">
-                                            <option value="1">March 2023</option>
-                                            <option value="2">April 2023</option>
-                                            <option value="3">May 2023</option>
-                                            <option value="4">June 2023</option>
-                                        </select>
+                                    <div class="col-auto">
+                                        <i class="fas fa-envelope fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
-                                <div id="chart"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <!-- Yearly Breakup -->
-                                <div class="card overflow-hidden">
-                                    <div class="card-body p-4">
-                                        <h5 class="card-title mb-9 fw-semibold">Yearly Breakup</h5>
-                                        <div class="row align-items-center">
-                                            <div class="col-8">
-                                                <h4 class="fw-semibold mb-3">$36,358</h4>
-                                                <div class="d-flex align-items-center mb-3">
-                                                    <span
-                                                        class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
-                                                        <i class="ti ti-arrow-up-left text-success"></i>
-                                                    </span>
-                                                    <p class="text-dark me-1 fs-3 mb-0">+9%</p>
-                                                    <p class="fs-3 mb-0">last year</p>
-                                                </div>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="me-4">
-                                                        <span
-                                                            class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
-                                                        <span class="fs-2">2023</span>
-                                                    </div>
-                                                    <div>
-                                                        <span
-                                                            class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
-                                                        <span class="fs-2">2023</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="d-flex justify-content-center">
-                                                    <div id="breakup"></div>
-                                                </div>
-                                            </div>
-                                        </div>
+
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Surat Keluar</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">120</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-envelope-open-text fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <!-- Monthly Earnings -->
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row alig n-items-start">
-                                            <div class="col-8">
-                                                <h5 class="card-title mb-9 fw-semibold"> Monthly Earnings </h5>
-                                                <h4 class="fw-semibold mb-3">$6,820</h4>
-                                                <div class="d-flex align-items-center pb-1">
-                                                    <span
-                                                        class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
-                                                        <i class="ti ti-arrow-down-right text-danger"></i>
-                                                    </span>
-                                                    <p class="text-dark me-1 fs-3 mb-0">+9%</p>
-                                                    <p class="fs-3 mb-0">last year</p>
-                                                </div>
+                        </div>
+                    </div>
+
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Surat Disposisi
+                                        </div>
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col-auto">
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">100</div>
                                             </div>
-                                            <div class="col-4">
-                                                <div class="d-flex justify-content-end">
-                                                    <div
-                                                        class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
-                                                        <i class="ti ti-currency-dollar fs-6"></i>
-                                                    </div>
+                                            <div class="col">
+                                                <div class="progress progress-sm mr-2">
+                                                    <div class="progress-bar bg-info" role="progressbar"
+                                                        style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="earning"></div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-mail-bulk fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pending Requests Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-warning shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        Total Surat</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">320</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="far fa-check-square fa-2x text-gray-300"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Content Row -->
+
                 <div class="row">
-                    <div class="col-lg-4 d-flex align-items-stretch">
-                        <div class="card w-100">
-                            <div class="card-body p-4">
-                                <div class="mb-4">
-                                    <h5 class="card-title fw-semibold">Recent Transactions</h5>
+                    <!-- Area Chart -->
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="card shadow mb-4">
+                            <!-- Card Header - Dropdown -->
+                            <div
+                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h5 style="font-family: 'Arial', sans-serif; font-weight: bold; color: #000; text-align: center;">Data Jumlah Surat Diterima Pada Tahun 2024</h5>
+                                <!-- Example split danger button -->
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary">Tahun</button>
+                                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">2021</a></li>
+                                    <li><a class="dropdown-item" href="#">2022</a></li>
+                                    <li><a class="dropdown-item" href="#">2023</a></li>
+                                    </ul>
                                 </div>
-                                <ul class="timeline-widget mb-0 position-relative mb-n5">
-                                    <li class="timeline-item d-flex position-relative overflow-hidden">
-                                        <div class="timeline-time text-dark flex-shrink-0 text-end">09:30</div>
-                                        <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                                            <span
-                                                class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
-                                            <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                                        </div>
-                                        <div class="timeline-desc fs-3 text-dark mt-n1">Payment received from John Doe
-                                            of $385.90</div>
-                                    </li>
-                                    <li class="timeline-item d-flex position-relative overflow-hidden">
-                                        <div class="timeline-time text-dark flex-shrink-0 text-end">10:00 am</div>
-                                        <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                                            <span
-                                                class="timeline-badge border-2 border border-info flex-shrink-0 my-8"></span>
-                                            <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                                        </div>
-                                        <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">New sale recorded
-                                            <a href="javascript:void(0)"
-                                                class="text-primary d-block fw-normal">#ML-3467</a>
-                                        </div>
-                                    </li>
-                                    <li class="timeline-item d-flex position-relative overflow-hidden">
-                                        <div class="timeline-time text-dark flex-shrink-0 text-end">12:00 am</div>
-                                        <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                                            <span
-                                                class="timeline-badge border-2 border border-success flex-shrink-0 my-8"></span>
-                                            <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                                        </div>
-                                        <div class="timeline-desc fs-3 text-dark mt-n1">Payment was made of $64.95 to
-                                            Michael</div>
-                                    </li>
-                                    <li class="timeline-item d-flex position-relative overflow-hidden">
-                                        <div class="timeline-time text-dark flex-shrink-0 text-end">09:30 am</div>
-                                        <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                                            <span
-                                                class="timeline-badge border-2 border border-warning flex-shrink-0 my-8"></span>
-                                            <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                                        </div>
-                                        <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">New sale recorded
-                                            <a href="javascript:void(0)"
-                                                class="text-primary d-block fw-normal">#ML-3467</a>
-                                        </div>
-                                    </li>
-                                    <li class="timeline-item d-flex position-relative overflow-hidden">
-                                        <div class="timeline-time text-dark flex-shrink-0 text-end">09:30 am</div>
-                                        <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                                            <span
-                                                class="timeline-badge border-2 border border-danger flex-shrink-0 my-8"></span>
-                                            <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                                        </div>
-                                        <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">New arrival
-                                            recorded
-                                        </div>
-                                    </li>
-                                    <li class="timeline-item d-flex position-relative overflow-hidden">
-                                        <div class="timeline-time text-dark flex-shrink-0 text-end">12:00 am</div>
-                                        <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                                            <span
-                                                class="timeline-badge border-2 border border-success flex-shrink-0 my-8"></span>
-                                        </div>
-                                        <div class="timeline-desc fs-3 text-dark mt-n1">Payment Done</div>
-                                    </li>
-                                </ul>
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <canvas id="grafikSurat"></canvas>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-8 d-flex align-items-stretch">
-                        <div class="card w-100">
-                            <div class="card-body p-4">
-                                <h5 class="card-title fw-semibold mb-4">Recent Transactions</h5>
-                                <div class="table-responsive">
-                                    <table class="table text-nowrap mb-0 align-middle">
-                                        <thead class="text-dark fs-4">
-                                            <tr>
-                                                <th class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0">Id</h6>
-                                                </th>
-                                                <th class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0">Assigned</h6>
-                                                </th>
-                                                <th class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0">Name</h6>
-                                                </th>
-                                                <th class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0">Priority</h6>
-                                                </th>
-                                                <th class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0">Budget</h6>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0">1</h6>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-1">Sunil Joshi</h6>
-                                                    <span class="fw-normal">Web Designer</span>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <p class="mb-0 fw-normal">Elite Admin</p>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <div class="d-flex align-items-center gap-2">
-                                                        <span class="badge bg-primary rounded-3 fw-semibold">Low</span>
-                                                    </div>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0">2</h6>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-1">Andrew McDownland</h6>
-                                                    <span class="fw-normal">Project Manager</span>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <p class="mb-0 fw-normal">Real Homes WP Theme</p>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <div class="d-flex align-items-center gap-2">
-                                                        <span
-                                                            class="badge bg-secondary rounded-3 fw-semibold">Medium</span>
-                                                    </div>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0 fs-4">$24.5k</h6>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0">3</h6>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-1">Christopher Jamil</h6>
-                                                    <span class="fw-normal">Project Manager</span>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <p class="mb-0 fw-normal">MedicalPro WP Theme</p>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <div class="d-flex align-items-center gap-2">
-                                                        <span class="badge bg-danger rounded-3 fw-semibold">High</span>
-                                                    </div>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0 fs-4">$12.8k</h6>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0">4</h6>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-1">Nirav Joshi</h6>
-                                                    <span class="fw-normal">Frontend Engineer</span>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <p class="mb-0 fw-normal">Hosting Press HTML</p>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <div class="d-flex align-items-center gap-2">
-                                                        <span
-                                                            class="badge bg-success rounded-3 fw-semibold">Critical</span>
-                                                    </div>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0 fs-4">$2.4k</h6>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Pie Chart -->
                 </div>
+                <!-- Content Row -->
                 <div class="row">
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="card overflow-hidden rounded-2">
-                            <div class="position-relative">
-                                <a href="javascript:void(0)"><img src="{{ asset('assets/images/products/s4.jpg') }}"
-                                        class="card-img-top rounded-0" alt="..."></a>
-                                <a href="javascript:void(0)"
-                                    class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
-                                        class="ti ti-basket fs-4"></i></a>
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="{{asset('assets/images/profile/kematian.jpg')}}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Contoh Surat Keterangan Kematian</h5>
+                                    <p class="card-text">
+                                        Surat kematian adalah dokumen resmi yang dikeluarkan oleh instansi pemerintah setempat atau lembaga yang berwenang, yang menyatakan bahwa seseorang telah meninggal dunia. Dokumen ini merupakan bukti legal yang diperlukan untuk berbagai
+                                        prosedur administratif, klaim asuransi, penyelesaian warisan, dan lain sebagainya. Surat kematian berisi informasi penting tentang identitas individu yang meninggal dan informasi tentang kematian tersebut.
+                                        {{-- Berikut adalah beberapa informasi yang biasanya tercantum dalam surat kematian:
+                                        <ol>
+                                            <li>Nama lengkap dan identitas pribadi: Surat kematian akan mencantumkan nama lengkap individu yang meninggal, termasuk tanggal lahir, tempat lahir, dan nomor identitas jika relevan. Ini membantu untuk mengidentifikasi orang yang meninggal secara pasti.</li>
+                                            <li>Tanggal dan tempat kematian: Dokumen tersebut akan mencantumkan tanggal dan tempat di mana individu tersebut meninggal dunia. Informasi ini diperlukan untuk keperluan administratif dan perencanaan pemakaman.</li>
+                                            <li>Penyebab kematian: Surat kematian biasanya juga mencantumkan penyebab kematian, baik secara singkat maupun detail, tergantung pada ketentuan yang berlaku di wilayah tersebut. Informasi ini dapat diperoleh dari sertifikat kematian yang dikeluarkan oleh dokter yang merawat.</li>
+                                            <li>Tanda tangan dan cap resmi: Dokumen tersebut akan ditandatangani oleh pejabat yang berwenang, seperti petugas catatan sipil atau dokter yang menandatanganinya, dan akan dicap dengan cap resmi lembaga yang menerbitkannya untuk memberikan keabsahan.</li>
+                                        </ol> --}}
+                                    </p>
+                                </div>
                             </div>
-                            <div class="card-body pt-3 p-4">
-                                <h6 class="fw-semibold fs-4">Boat Headphone</h6>
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <h6 class="fw-semibold fs-4 mb-0">$50 <span
-                                            class="ms-2 fw-normal text-muted fs-3"><del>$65</del></span></h6>
-                                    <ul class="list-unstyled d-flex align-items-center mb-0">
-                                        <li><a class="me-1" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                    </ul>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="{{asset('assets/images/profile/usaha.webp')}}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Contoh Surat Keterangan Usaha</h5>
+                                    <p class="card-text">
+                                        Surat keterangan usaha adalah dokumen resmi yang dikeluarkan oleh instansi pemerintah atau lembaga lain yang berwenang, yang menyatakan bahwa seseorang atau suatu badan usaha memang memiliki usaha atau bisnis yang sah dan terdaftar. Dokumen ini
+                                        sering kali diperlukan untuk berbagai keperluan administratif, termasuk pendaftaran ke lembaga keuangan, pengajuan izin usaha, partisipasi dalam tender proyek, atau dalam transaksi bisnis lainnya.
+                                        {{-- Berikut adalah beberapa informasi yang biasanya terdapat dalam surat keterangan usaha:
+                                        <ol>
+                                            <li>Identitas Pemilik Usaha atau Perusahaan: Surat keterangan tersebut akan mencantumkan nama lengkap pemilik usaha atau perusahaan, serta informasi identifikasi lainnya seperti nomor identitas atau nomor perusahaan.</li>
+                                            <li>Informasi tentang Usaha atau Perusahaan: Dokumen tersebut akan memberikan informasi mengenai jenis usaha atau bidang usaha yang dijalankan, misalnya jasa, perdagangan, atau manufaktur, serta detail lainnya yang relevan.</li>
+                                            <li>Tanggal Berlaku: Surat keterangan usaha akan mencantumkan tanggal dikeluarkannya dokumen tersebut, yang menunjukkan kebaruan informasi yang terkandung di dalamnya.</li>
+                                            <li>Tanda Tangan dan Cap Resmi: Surat keterangan tersebut akan ditandatangani oleh pejabat yang berwenang dan dicap dengan cap resmi dari lembaga atau pihak yang menerbitkannya, untuk memberikan keabsahan dokumen tersebut.</li>
+                                            <li>Nomor Registrasi atau Izin Usaha: Dokumen tersebut mungkin juga mencantumkan nomor registrasi atau nomor izin usaha yang dimiliki oleh usaha atau perusahaan yang bersangkutan.</li>
+                                        </ol> --}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="{{asset('assets/images/profile/domisili.jpg')}}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Contoh Keterangan Domisili</h5>
+                                    <p class="card-text">
+                                        Surat keterangan domisili adalah dokumen resmi yang dikeluarkan oleh pihak berwenang, seperti pemerintah daerah atau kepolisian, yang menyatakan bahwa seseorang atau sekelompok orang memiliki tempat tinggal atau kediaman di suatu wilayah atau
+                                        alamat tertentu. Dokumen ini sering kali diperlukan untuk keperluan administratif, seperti pembukaan rekening bank, pendaftaran kartu identitas, pendaftaran sekolah, atau berbagai transaksi lain yang memerlukan bukti alamat tempat tinggal.
+                                        {{-- Berikut adalah beberapa informasi yang biasanya dicantumkan dalam surat keterangan domisili:
+                                        <ol>
+                                            <li>Identitas Pihak yang Bersangkutan: Surat keterangan domisili akan mencantumkan nama lengkap, nomor identitas, tanggal lahir, dan informasi identifikasi lainnya untuk mengidentifikasi orang yang bersangkutan.</li>
+                                            <li>Alamat Tempat Tinggal: Dokumen tersebut akan mencantumkan alamat lengkap tempat tinggal atau kediaman orang yang bersangkutan.</li>
+                                            <li>Tanggal Dikeluarkan: Surat keterangan domisili akan mencantumkan tanggal penerbitan dokumen tersebut untuk menunjukkan kebaruan informasi yang terkandung di dalamnya.</li>
+                                            <li>Tanda Tangan dan Cap Resmi: Surat tersebut akan ditandatangani oleh pejabat yang berwenang, seperti lurah atau kepala desa, dan akan dicap dengan cap resmi dari lembaga atau pihak yang menerbitkannya untuk memberikan keabsahan dokumen tersebut.</li>
+                                        </ol> --}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="{{asset('assets/images/profile/sktm.webp')}}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Contoh Surat SKTM</h5>
+                                    <p class="card-text">
+                                        Surat keterangan tidak mampu adalah dokumen resmi yang dikeluarkan oleh pihak yang berwenang, seperti kantor pemerintah atau lembaga yang berwenang, yang menyatakan bahwa seseorang atau sekelompok orang tidak mampu
+                                        secara finansial untuk melakukan atau memenuhi suatu kewajiban atau keperluan tertentu. Surat ini biasanya digunakan sebagai bukti bahwa seseorang tidak memiliki cukup dana untuk membayar biaya-biaya tertentu, seperti
+                                        biaya pengobatan, biaya pendidikan, atau biaya administrasi lainnya.
+                                        {{-- Berikut adalah beberapa hal yang biasanya dicantumkan dalam surat keterangan tidak mampu:
+                                        <ol>
+                                            <li>Identitas Pihak yang Bersangkutan: Surat keterangan tidak mampu akan mencantumkan nama lengkap, alamat, nomor identitas, dan informasi lainnya yang diperlukan untuk mengidentifikasi orang yang bersangkutan.</li>
+                                            <li>Penjelasan Keadaan Finansial: Surat tersebut akan menjelaskan secara singkat alasan mengapa pihak yang bersangkutan tidak mampu secara finansial, misalnya pengangguran, keterbatasan pendapatan, atau kondisi ekonomi lainnya.</li>
+                                            <li>Tujuan Penggunaan Surat: Surat keterangan tidak mampu akan mencantumkan tujuan penggunaannya, misalnya untuk mengajukan bantuan keuangan, memperoleh keringanan biaya, atau untuk keperluan administratif lainnya.</li>
+                                            <li>Tanda Tangan dan Cap Resmi: Surat tersebut akan ditandatangani oleh pejabat yang berwenang dan dicap dengan cap resmi lembaga yang menerbitkannya untuk memberikan keabsahan dokumen tersebut.</li>
+                                        </ol> --}}
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="card overflow-hidden rounded-2">
-                            <div class="position-relative">
-                                <a href="javascript:void(0)"><img src="{{ asset('assets/images/products/s5.jpg') }}"
-                                        class="card-img-top rounded-0" alt="..."></a>
-                                <a href="javascript:void(0)"
-                                    class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
-                                        class="ti ti-basket fs-4"></i></a>
-                            </div>
-                            <div class="card-body pt-3 p-4">
-                                <h6 class="fw-semibold fs-4">MacBook Air Pro</h6>
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <h6 class="fw-semibold fs-4 mb-0">$650 <span
-                                            class="ms-2 fw-normal text-muted fs-3"><del>$900</del></span></h6>
-                                    <ul class="list-unstyled d-flex align-items-center mb-0">
-                                        <li><a class="me-1" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="card overflow-hidden rounded-2">
-                            <div class="position-relative">
-                                <a href="javascript:void(0)"><img src="{{ asset('assets/images/products/s7.jpg') }}"
-                                        class="card-img-top rounded-0" alt="..."></a>
-                                <a href="javascript:void(0)"
-                                    class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
-                                        class="ti ti-basket fs-4"></i></a>
-                            </div>
-                            <div class="card-body pt-3 p-4">
-                                <h6 class="fw-semibold fs-4">Red Valvet Dress</h6>
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <h6 class="fw-semibold fs-4 mb-0">$150 <span
-                                            class="ms-2 fw-normal text-muted fs-3"><del>$200</del></span></h6>
-                                    <ul class="list-unstyled d-flex align-items-center mb-0">
-                                        <li><a class="me-1" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="card overflow-hidden rounded-2">
-                            <div class="position-relative">
-                                <a href="javascript:void(0)"><img src="{{ asset('assets/images/products/s11.jpg') }}"
-                                        class="card-img-top rounded-0" alt="..."></a>
-                                <a href="javascript:void(0)"
-                                    class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
-                                        class="ti ti-basket fs-4"></i></a>
-                            </div>
-                            <div class="card-body pt-3 p-4">
-                                <h6 class="fw-semibold fs-4">Cute Soft Teddybear</h6>
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <h6 class="fw-semibold fs-4 mb-0">$285 <span
-                                            class="ms-2 fw-normal text-muted fs-3"><del>$345</del></span></h6>
-                                    <ul class="list-unstyled d-flex align-items-center mb-0">
-                                        <li><a class="me-1" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="" href="javascript:void(0)"><i
-                                                    class="ti ti-star text-warning"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="py-6 px-6 text-center">
-                    <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank"
-                            class="pe-1 text-primary text-decoration-underline">AdminMart.com</a></p>
                 </div>
             </div>
-        </div>
-    </div>
-    <script src="{{ asset('libs/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/sidebarmenu.js') }}"></script>
-    <script src="{{ asset('js/app.min.js') }}"></script>
-    <script src="{{ asset('libs/apexcharts/dist/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('libs/simplebar/dist/simplebar.js') }}"></script>
-    <script src="{{ asset('js/dashboard.js') }}"></script>
-</body>
 
-</html>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('grafikSurat').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Jumlah Surat Diproses',
+                    data: [12, 19, 3, 5, 2, 3, 8, 10, 15, 10, 5, 20],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var cards = document.querySelectorAll(".card-text"); // Memilih semua elemen dengan kelas "card-text"
+
+            cards.forEach(function(card) {
+                var content = card.textContent.trim(); // Menghapus spasi di awal dan akhir teks
+                var words = content.split(' '); // Memisahkan teks menjadi array kata
+
+                var maxWords = 20; // Jumlah maksimum kata yang ingin ditampilkan
+
+                if (words.length > maxWords) {
+                    var truncatedContent = words.slice(0, maxWords).join(' '); // Memotong array kata menjadi maksimum jumlah kata yang ditentukan
+                    var fullContent = words.join(' '); // Menggabungkan kembali seluruh kalimat
+
+                    card.innerHTML = truncatedContent + '...'; // Menampilkan teks yang dipotong dengan ellipsis
+
+                    // Menambahkan event listener untuk memperluas atau memperpendek teks saat mengklik card
+                    card.addEventListener('click', function() {
+                        if (card.textContent === truncatedContent + '...') {
+                            card.textContent = fullContent; // Menampilkan seluruh kalimat
+                        } else {
+                            card.textContent = truncatedContent + '...'; // Kembali ke tampilan teks yang dipotong dengan ellipsis
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+

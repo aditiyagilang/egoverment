@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SktmController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/generate-pdf', [SktmController::class, 'index']);
 
@@ -15,9 +15,6 @@ Route::get('/generate-pdf', [SktmController::class, 'index']);
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-
-
 
 Route::get('/', function () {
     return view('login');
@@ -37,4 +34,3 @@ Route::get('/suratdisposisi', function () {
 Route::get('/profile', function () {
     return view('profile');
 });
-
