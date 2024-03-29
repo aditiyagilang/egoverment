@@ -24,17 +24,19 @@
                   <img src="{{asset('assets/images/logos/dark-logo.svg')}}" width="180" alt="">
                 </a>
                 <p class="text-center">Your Social Campaigns</p>
-                <form>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  </div>
-                  <div class="mb-4">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                  </div>
-                  <a href="/index" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign In</a>
+                <form method="post" action="{{ route('login') }}" id="loginForm">
+                    @csrf <!-- Penting untuk keamanan Laravel -->
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                    </div>
+                    <div class="mb-4">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign In</button>
                 </form>
+
               </div>
             </div>
           </div>

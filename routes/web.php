@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SktmController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/generate-pdf', [SktmController::class, 'index']);
@@ -16,9 +17,12 @@ Route::get('/generate-pdf', [SktmController::class, 'index']);
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+Route::get('/', [UsersController::class, 'showLoginForm']);
+Route::post('/login', [UsersController::class, 'login'])->name('login');
+
 Route::get('/index', function () {
     return view('index');
 });

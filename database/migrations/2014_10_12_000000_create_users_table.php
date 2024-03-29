@@ -12,15 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('email');
             $table->string('password');
+            $table->string('telegram_id')->nullable();
+            $table->unsignedBigInteger('jabatan_id')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('notelp')->nullable();
+            $table->string('foto')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->foreign('jabatan_id')->references('id')->on('jabatan')->onDelete('set null');
         });
     }
+
+
 
     /**
      * Reverse the migrations.
