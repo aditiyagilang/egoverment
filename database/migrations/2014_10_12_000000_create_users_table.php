@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('alamat')->nullable();
             $table->string('notelp')->nullable();
             $table->string('foto')->nullable();
+            $table->enum('level', ['Admin', 'Sekretaris', 'Kaur Umum', 'Kepala Desa', 'Lainya' ]);
             $table->rememberToken();
             $table->timestamps();
             $table->foreign('jabatan_id')->references('id')->on('jabatan')->onDelete('set null');

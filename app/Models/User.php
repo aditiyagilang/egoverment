@@ -25,6 +25,7 @@ class User extends Authenticatable
         'foto',
         'jabatan_id',
         'telegram_id',
+        'level'
     ];
 
     /**
