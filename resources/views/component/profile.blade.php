@@ -49,9 +49,9 @@
     data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
     <aside class="left-sidebar">
         @php
-            $activePage = 'index'; // Contoh, sesuaikan dengan halaman yang sedang aktif
+            $activePage = 'profil'; // Contoh, sesuaikan dengan halaman yang sedang aktif
         @endphp
-        @include('sidebar', ['activePage' => $activePage])
+        @include('admin.sidebar', ['activePage' => $activePage])
     </aside>
     <!--  Sidebar End -->
     <!--  Main wrapper -->
@@ -60,25 +60,13 @@
 
         <header class="app-header">
             <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-                <ul class="navbar-nav">
-                    <li class="nav-item d-block d-xl-none">
-                        <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
-                            <i class="ti ti-menu-2"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-icon-hover" href="javascript:void(0)">
-                            <i class="ti ti-bell-ringing"></i>
-                            <div class="notification bg-primary rounded-circle"></div>
-                        </a>
-                    </li>
-                </ul>
+
                 <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                     <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
                         <li class="nav-item dropdown">
                             <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{ asset('assets/images/profile/user-1.jpg') }}" alt="" width="35"
+                                <img src="assets/profile/{{$user->foto}}/{{$user->foto}}" alt="" width="35"
                                     height="35" class="rounded-circle">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
@@ -88,7 +76,7 @@
                                         <i class="ti ti-user fs-6"></i>
                                         <p class="mb-0 fs-3">My Profile</p>
                                     </a>
-                                    <a href="./authentication-login.html"
+                                    <a href="/logout"
                                         class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                                 </div>
                             </div>
@@ -107,41 +95,54 @@
                             <div class="card-header">Edit Profile</div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-4 mb-4 mb-md-0">
-                                        <img src="https://via.placeholder.com/150" alt="Profile Image"
+                                    <div class="col-md-4 mb-4 mb-md-0 text-center">
+                                        <img src="assets/profile/{{$user->foto}}/{{$user->foto}}" style="height: 21%; width: 100%;" alt="Profile Image"
                                             class="profile-image img-fluid rounded-circle">
-                                        <div class="form-group mt-3">
-                                            <label for="profile-image">Profile Image</label>
-                                            <input type="file" class="form-control-file" id="profile-image">
-                                        </div>
-                                        <p>Nama: John Doe</p>
-                                        <p>Email: johndoe@example.com</p>
+
+                                        <p>Nama: {{$user->name}}</p>
+                                        <p>Email: {{$user->email}}</p>
                                         <!-- Tambah label dengan data di sini -->
                                     </div>
                                     <div class="col-md-8">
-                                        <form>
+                                        <form method="POST" action="{{ route('profile.update', $user->id) }}" enctype="multipart/form-data">
+                                            @csrf
+                                            @method('PUT')
                                             <div class="form-group">
                                                 <label for="name">Name</label>
-                                                <input type="text" class="form-control" id="name"
-                                                    placeholder="Enter your name">
+                                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" value="{{$user->name}}">
                                             </div>
                                             <div class="form-group">
                                                 <label for="email">Email address</label>
-                                                <input type="email" class="form-control" id="email"
-                                                    placeholder="Enter email">
+                                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" value="{{$user->email}}">
                                             </div>
                                             <div class="form-group">
                                                 <label for="password">Password</label>
-                                                <input type="password" class="form-control" id="password"
-                                                    placeholder="Password">
+                                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="{{$user->password}}">
                                             </div>
                                             <div class="form-group">
                                                 <label for="confirm_password">Confirm Password</label>
-                                                <input type="password" class="form-control" id="confirm_password"
-                                                    placeholder="Confirm Password">
+                                                <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password">
                                             </div>
+                                            <div class="form-group">
+                                                <label for="alamat">Alamat</label>
+                                                <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Enter your address" value="{{$user->alamat}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="notelp">Nomor Telepon</label>
+                                                <input type="text" class="form-control" id="notelp" name="notelp" placeholder="Enter your phone number" value="{{$user->notelp}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="telegram_id">ID Telegram</label>
+                                                <input type="text" class="form-control" id="telegram_id" name="telegram_id" placeholder="Enter your phone number" value="{{$user->telegram_id}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="foto">Foto</label>
+                                                <input type="file" id="foto" name="foto" class="form-control" value="{{ $user->foto }}" placeholder="Enter Foto">
+                                            </div>
+                                            <!-- Menambahkan input untuk data yang diperlukan lainnya -->
                                             <button type="submit" class="btn btn-primary">Update Profile</button>
                                         </form>
+
                                     </div>
                                 </div>
                             </div>

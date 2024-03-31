@@ -8,14 +8,18 @@ use App\Http\Controllers\Controller;
 
 class JabatanController extends Controller
 {
-    public function index()
-    {
-        // Mendapatkan semua data jabatan dari database
-        $jabatan = Jabatan::all();
+    public function index(Request $request)
+{
+    // Mendapatkan semua data jabatan dari database
+    $jabatan = Jabatan::all();
 
-        // Mengirimkan data jabatan ke view untuk ditampilkan
-        return view('admin.jabatan', ['jabatan' => $jabatan]);
-    }
+    // Mendapatkan nama file foto dari sesi
+    $fileName = $request->session()->get('foto');
+
+    // Mengirimkan data jabatan dan nama file foto ke view untuk ditampilkan
+    return view('admin.jabatan', ['jabatan' => $jabatan, 'fileName' => $fileName]);
+}
+
 
     public function store(Request $request)
     {

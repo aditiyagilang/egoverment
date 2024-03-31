@@ -12,44 +12,54 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
-
 <body>
-
     <!--  Body Wrapper -->
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">
         <!-- Sidebar Start -->
         <aside class="left-sidebar">
             @php
-                $activePage = 'user'; // Contoh, sesuaikan dengan halaman yang sedang aktif
+                $activePage = 'suratmasuk'; // Contoh, sesuaikan dengan halaman yang sedang aktif
             @endphp
-            @include('admin.sidebar', ['activePage' => $activePage])
+            @include('umum.sidebar', ['activePage' => $activePage])
         </aside>
         <!--  Sidebar End -->
         <!--  Main wrapper -->
         <div class="body-wrapper">
             <!--  Header Start -->
             <header class="app-header">
-                <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <ul class="navbar-nav">
+                        <li class="nav-item d-block d-xl-none">
+                            <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse"
+                                href="javascript:void(0)">
+                                <i class="ti ti-menu-2"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-icon-hover" href="javascript:void(0)">
+                                <i class="ti ti-bell-ringing"></i>
+                                <div class="notification bg-primary rounded-circle"></div>
+                            </a>
+                        </li>
+                    </ul>
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{ asset('assets/profile/'.$fileName.'/'.$fileName) }}" alt="" width="35" height="35" class="rounded-circle">
-
+                                    <img src="{{ asset('assets/images/profile/user-1.jpg') }}" alt=""
+                                        width="35" height="35" class="rounded-circle">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
                                     <div class="message-body">
-                                        <a href="/profile"
+                                        <a href="javascript:void(0)"
                                             class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-user fs-6"></i>
                                             <p class="mb-0 fs-3">My Profile</p>
                                         </a>
-                                        <a href="/logout"
-                                            class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                                        <a href="/login" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                                     </div>
                                 </div>
                             </li>
@@ -66,242 +76,217 @@
                         <div class="card">
                             <h3 class="card-header text-center font-weight-bold text-uppercase py-4"
                                 style="background-color: #5D87FF; color: black">
-                                Tabel Jabatan
+                                Tabel Surat Masuk
                             </h3>
                             <div class="card-body">
                                 <div id="table" class="table-editable">
                                     <span class="table-add float-end mb-3 me-2">
-                                        <button class="btn btn-sm btn-success" data-toggle="modal"
-                                            data-target="#addModal"><i class="ri-add-fill"><span
-                                                    class="ps-1">Add New</span></i></button>
-                                        <div class="modal fade" id="addModal" tabindex="-1" role="dialog"
-                                            aria-labelledby="addModalTitle" aria-hidden="true">
+                                        <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModalCenter3">
+                                            <i class="ri-add-fill"><span class="ps-1">Add New</span></i>
+                                        </button>
+                                        <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="addModalTitle">Add New Jabatan</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Add New Surat</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form method="POST" action="{{ route('user.store') }}" enctype="multipart/form-data">
+                                                        <form action="{{ route('suratmasuk.store') }}" method="POST" enctype="multipart/form-data">
                                                             @csrf
                                                             <div class="form-group">
-                                                                <label for="name">Nama</label>
-                                                                <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan Nama">
+                                                                <label for="no">No Surat</label>
+                                                                <input type="text" name="id_surat" class="form-control" placeholder="No Surat">
                                                             </div>
+
                                                             <div class="form-group">
-                                                                <label for="email">Email</label>
-                                                                <input type="email" id="email" name="email" class="form-control" placeholder="Masukkan Email">
+                                                                <label for="nama">Nama</label>
+                                                                <input type="text" name="nama" class="form-control" placeholder="Nama">
                                                             </div>
+
                                                             <div class="form-group">
-                                                                <label for="password">Password</label>
-                                                                <input type="password" id="password" name="password" class="form-control" placeholder="Masukkan Password">
+                                                                <label for="perihal">Perihal</label>
+                                                                <textarea name="perihal" class="form-control" placeholder="Perihal"></textarea>
                                                             </div>
+
                                                             <div class="form-group">
-                                                                <label for="alamat">Alamat</label>
-                                                                <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Masukkan Alamat">
+                                                                <label for="asalsurat">Asal Surat</label>
+                                                                <input type="text" name="asalsurat" class="form-control" placeholder="Asal Surat">
                                                             </div>
+
                                                             <div class="form-group">
-                                                                <label for="notelp">Nomor Telepon</label>
-                                                                <input type="text" id="notelp" name="notelp" class="form-control" placeholder="Masukkan Nomor Telepon">
+                                                                <label for="tanggal_surat">Tanggal Surat</label>
+                                                                <input type="date" name="tanggal_surat" class="form-control">
                                                             </div>
+
                                                             <div class="form-group">
-                                                                <label for="foto">Foto</label>
-                                                                <input type="file" id="foto" name="foto" class="form-control">
+                                                                <label for="tanggal_terima">Tanggal Terima</label>
+                                                                <input type="date" name="tanggal_terima" class="form-control">
                                                             </div>
+
                                                             <div class="form-group">
-                                                                <label for="jabatan_id">Jabatan</label>
-                                                                <select id="jabatan_id" name="jabatan_id" class="form-control">
-                                                                    <!-- Tambahkan opsi untuk setiap jabatan -->
-                                                                    @foreach($jabatan as $jbtn)
-                                                                        <option value="{{ $jbtn->id }}">{{ $jbtn->nama }}</option>
-                                                                    @endforeach
-                                                                </select>
+                                                                <label for="file">File</label>
+                                                                <input type="file" name="file" class="form-control-file">
                                                             </div>
-                                                            <div class="form-group">
-                                                                <label for="level">Hak Akses</label>
-                                                                <select id="level" name="level" class="form-control">
-                                                                    <option value="Admin">Admin</option>
-                                                                    <option value="Sekretaris">Sekretaris</option>
-                                                                    <option value="Kepala Desa">Kepala Desa</option>
-                                                                    <option value="Kaur Umum">Kaur Umum</option>
-                                                                    <option value="Lainya">Lainya</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="telegram_id">ID Telegram</label>
-                                                                <input type="text" id="telegram_id" name="telegram_id" class="form-control" placeholder="Masukkan ID Telegram">
-                                                            </div>
-                                                            <!-- Tambahkan formulir untuk bidang lainnya di sini sesuai kebutuhan Anda -->
 
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                                                <button type="submit" class="btn btn-primary">Add User</button>
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">Save Changes</button>
                                                             </div>
                                                         </form>
-
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
-
                                     </span>
+
                                     <table class="table table-bordered table-responsive-md table-striped text-center">
                                         <thead>
                                             <tr>
-                                                <th>No</th>
+                                                <th>No Surat</th>
+
                                                 <th>Nama</th>
-                                                <th>Email</th>
-                                                <th>Alamat</th>
-                                                <th>No Handphone</th>
-                                                <th>ID Telegram</th>
-                                                <th>Jabatan</th>
-                                                <th>Hak Akses</th>
+                                                <th>Perihal</th>
+                                                <th>Asal Surat</th>
+                                                <th>Tanggal Surat</th>
+                                                <th>Tanggal Terima</th>
                                                 <th>Action</th> <!-- Ubah kolom Remove menjadi Action -->
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($user as $key => $user)
-                                                <tr >
+                                            @foreach ($suratMasuk as $surat)
+                                                <tr>
+                                                    <td>{{ $surat->id_surat }}</td>
 
-                                                    <td>{{ $key + 1 }}</td>
-
-
-                                                    <td>{{ $user->name }}</td>
-                                                    <td>{{ $user->email }}</td>
-                                                    <td>{{ $user->alamat }}</td>
-                                                    <td>{{ $user->notelp }}</td>
-                                                    <td>{{ $user->telegram_id }}</td>
-                                                    <td>{{ $user->jabatan->nama }}</td>
-                                                    <td>{{ $user->level }}</td>
-
+                                                    <td>{{ $surat->nama }}</td>
+                                                    <td>{{ $surat->perihal }}</td>
+                                                    <td>{{ $surat->asalsurat }}</td>
+                                                    <td>{{ $surat->tanggal_surat }}</td>
+                                                    <td>{{ $surat->tanggal_terima }}</td>
                                                     <td>
                                                         <!-- Tombol untuk setiap action -->
                                                         <button type="button"
                                                             class="btn btn-danger btn-rounded btn-sm my-0"
                                                             data-toggle="modal"
-                                                            data-target="#deleteModal{{ $user->id }}">Delete</button>
+                                                            data-target="#exampleModalCenter2">Delete</button>
                                                         <!-- Modal -->
-                                                        <div class="modal fade" id="deleteModal{{ $user->id }}"
+                                                        <div class="modal fade" id="exampleModalCenter2"
                                                             tabindex="-1" role="dialog"
-                                                            aria-labelledby="deleteModalLabel{{ $user->id }}"
+                                                            aria-labelledby="exampleModalCenterTitle"
                                                             aria-hidden="true">
-                                                            <!-- Isi formulir untuk mengedit data user -->
                                                             <div class="modal-dialog modal-dialog-centered"
                                                                 role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
-                                                                        <h5 class="modal-title" id="deleteModalTitle">
-                                                                            Confirmation</h5>
+                                                                        <h5 class="modal-title"
+                                                                            id="exampleModalLongTitle">Announcement
+                                                                        </h5>
                                                                         <button type="button" class="close"
                                                                             data-dismiss="modal" aria-label="Close">
                                                                             <span aria-hidden="true">&times;</span>
                                                                         </button>
                                                                     </div>
                                                                     <div class="modal-body">
-                                                                        Are you sure you want to delete this user?
+                                                                        Are you sure you want to deleted this?
                                                                     </div>
                                                                     <div class="modal-footer">
-                                                                        <form id="deleteForm"
-                                                                            action="{{ route('user.destroy', $user->id) }}"
-                                                                            method="POST">
-                                                                            @csrf
-                                                                            @method('DELETE')
-                                                                            <button type="submit"
-                                                                                class="btn btn-danger">Delete</button>
-                                                                            <button type="button"
-                                                                                class="btn btn-secondary"
-                                                                                data-dismiss="modal">Cancel</button>
-                                                                        </form>
+                                                                        <button type="button"
+                                                                            class="btn btn-primary">Delete</button>
+                                                                        <button type="button" class="btn btn-primary"
+                                                                            data-dismiss="modal"
+                                                                            style="background-color:black">Cancel</button>
                                                                     </div>
                                                                 </div>
-
                                                             </div>
                                                         </div>
                                                         <button type="button"
                                                             class="btn btn-warning btn-rounded btn-sm my-0"
                                                             data-toggle="modal"
-                                                            data-target="#editModal{{ $user->id }}">Edit</button>
+                                                            data-target="#exampleModalCenter1">Edit</button>
                                                         <!-- Modal -->
-                                                        <div class="modal fade" id="editModal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{ $user->id }}" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal fade" id="exampleModalCenter1"
+                                                            tabindex="-1" role="dialog"
+                                                            aria-labelledby="exampleModalCenterTitle"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered"
+                                                                role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLongTitle">Edit Data</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <h5 class="modal-title"
+                                                                            id="exampleModalLongTitle">Edit
+                                                                            Data</h5>
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
                                                                             <span aria-hidden="true">&times;</span>
                                                                         </button>
                                                                     </div>
                                                                     <div class="modal-body">
-                                                                        <form method="POST" action="{{ route('user.update', $user->id) }}" enctype="multipart/form-data">
-                                                                            @csrf
-                                                                            @method('PUT')
+                                                                        <form>
                                                                             <div class="form-group">
-                                                                                <label for="name">Nama</label>
-                                                                                <input type="text" id="name" name="name" class="form-control" value="{{ $user->name }}">
+                                                                                <label for="no">No Surat</label>
+                                                                                <input type="text" id="no"
+                                                                                    class="form-control"
+                                                                                    placeholder="Contoh form text ...">
                                                                             </div>
 
                                                                             <div class="form-group">
-                                                                                <label for="email">Email</label>
-                                                                                <input type="email" id="email" name="email" class="form-control" value="{{ $user->email }}">
+                                                                                <label for="noAgenda">No Agenda</label>
+                                                                                <input type="text" id="noAgenda"
+                                                                                    class="form-control"
+                                                                                    placeholder="Contoh form text ...">
                                                                             </div>
 
                                                                             <div class="form-group">
-                                                                                <label for="alamat">Alamat</label>
-                                                                                <input type="text" id="alamat" name="alamat" class="form-control" value="{{ $user->alamat }}" placeholder="Enter Alamat">
+                                                                                <label for="nama">Nama</label>
+                                                                                <input type="text" id="nama"
+                                                                                    class="form-control"
+                                                                                    placeholder="Contoh form text ...">
                                                                             </div>
 
                                                                             <div class="form-group">
-                                                                                <label for="notelp">No. Telepon</label>
-                                                                                <input type="text" id="notelp" name="notelp" class="form-control" value="{{ $user->notelp }}" placeholder="Enter No. Telepon">
+                                                                                <label for="perihal">Perihal</label>
+                                                                                <textarea type="text" id="perihal" class="form-control" placeholder="Contoh textarea ..."></textarea>
                                                                             </div>
 
                                                                             <div class="form-group">
-                                                                                <label for="foto">Foto</label>
-                                                                                <input type="file" id="foto" name="foto" class="form-control" value="{{ $user->foto }}" placeholder="Enter Foto">
+                                                                                <label for="nama">Asal
+                                                                                    Surat</label>
+                                                                                <input type="text" id="nama"
+                                                                                    class="form-control"
+                                                                                    placeholder="Contoh form text ...">
                                                                             </div>
 
                                                                             <div class="form-group">
-                                                                                <label for="jabatan_id">Jabatan</label>
-                                                                                <input type="text" id="jabatan_id" name="jabatan_id" class="form-control" value="{{ $user->jabatan_id }}" placeholder="Enter Jabatan">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <label for="level">Hak Akses</label>
-                                                                                <select id="level" name="level" class="form-control">
-                                                                                    <!-- Tambahkan opsi untuk setiap jabatan -->
-
-                                                                                        <option value="{{ $user->level }}">{{ $user->level }}</option>
-                                                                                        <option value="Admin">Admin</option>
-                                                                                        <option value="Sekretaris">Sekretaris</option>
-                                                                                        <option value="Kepala Desa">Kepala Desa</option>
-                                                                                        <option value="Kaur Umum">Kaur Umum</option>
-                                                                                        <option value="Lainya">Lainya</option>
-
-                                                                                </select>
+                                                                                <label for="tanggal">Tanggal
+                                                                                    Surat</label>
+                                                                                <input type="date"
+                                                                                    class="form-control"
+                                                                                    id="inputGroupFile02">
                                                                             </div>
 
                                                                             <div class="form-group">
-                                                                                <label for="telegram_id">Telegram ID</label>
-                                                                                <input type="text" id="telegram_id" name="telegram_id" class="form-control" value="{{ $user->telegram_id }}" placeholder="Enter Telegram ID">
-                                                                            </div>
-
-                                                                            <!-- Tambahkan formulir untuk bidang lainnya di sini sesuai kebutuhan Anda -->
-
-                                                                            <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                                                                <label for="tanggalterima">Tanggal
+                                                                                    Terima</label>
+                                                                                <input type="date"
+                                                                                    class="form-control"
+                                                                                    id="inputGroupFile02">
                                                                             </div>
                                                                         </form>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn btn-primary">Save
+                                                                            Changes</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-
-
+                                                        <button type="button"
+                                                            class="btn btn-info btn-rounded btn-sm my-0">Send</button>
+                                                        <a type="button" href="{{ url('generate-pdf') }}"
+                                                            class="btn btn-primary btn-rounded btn-sm my-0">View</a>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -335,7 +320,7 @@
         <script src="{{ asset('js/dashboard.js') }}"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                var perihalCells = document.querySelectorAll("td:nth-child(4)"); // Memilih sel pada kolom "Perihal"
+                var perihalCells = document.querySelectorAll("td:nth-child(3)"); // Memilih sel pada kolom "Perihal"
 
                 perihalCells.forEach(function(cell) {
                     var content = cell.textContent;

@@ -38,7 +38,7 @@
             @php
                 $activePage = 'index';
             @endphp
-            @include('admin.sidebar', ['activePage' => $activePage])
+            @include('umum.sidebar', ['activePage' => $activePage])
         </aside>
         <!--  Sidebar End -->
         <!--  Main wrapper -->

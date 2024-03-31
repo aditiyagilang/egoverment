@@ -1,4 +1,4 @@
-{{--
+
 <style>
     /* Warna latar belakang item sidebar aktif */
     .sidebar-item.active {
@@ -31,7 +31,7 @@
                 <span class="hide-menu">Home</span>
             </li>
             <li class="sidebar-item {{ $activePage == 'index' ? 'active' : '' }}">
-                <a class="sidebar-link" href="/index" aria-expanded="false">
+                <a class="sidebar-link" href="/dashboardumum" aria-expanded="false">
                     <span>
                         <i class="ti ti-layout-dashboard"></i>
                     </span>
@@ -45,7 +45,7 @@
                 <span class="hide-menu">Tabel Surat</span>
             </li>
             <li class="sidebar-item {{ $activePage == 'suratmasuk' ? 'active' : '' }}">
-                <a class="sidebar-link" href="{{ route('surat.index') }}" aria-expanded="false">
+                <a class="sidebar-link" href="/suratmasukumum" aria-expanded="false">
                     <span>
                         <i class="fas fa-envelope"></i> <!-- Icon untuk Surat Masuk -->
                     </span>
@@ -74,4 +74,3 @@
     <!-- End Sidebar navigation -->
 </div>
 <!-- End Sidebar scroll-->
- --}}

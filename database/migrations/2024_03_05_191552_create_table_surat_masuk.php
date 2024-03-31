@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('id_surat');
             $table->string('nama');
-            $table->string('perihal');
+            $table->text('perihal');
             $table->string('asalsurat');
             $table->string('file');
             $table->date('tanggal_surat')->nullable();
+            $table->date('tanggal_terima')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
